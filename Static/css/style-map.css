@@ -1,0 +1,43 @@
+/*****************************TAGS**********************************/
+a {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  font-weight: bold;
+  color: white;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+hr {
+  border-style: dotted none none;
+  width: 5%;
+  border-width: 7px;
+  border-color: white;
+  margin:100px auto;
+}
+
+html, body { 
+  height: 100%; 
+}
+
+
+/*****************************CLASS**********************************/
+.animated {
+  height: auto;
+  width: auto;
+    
+}
+
+/*****************************ID**********************************/
+#map{
+  height: 43.75rem; 
+  opacity: 0.8;
+  border: 5px solid white;
+}
