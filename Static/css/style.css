@@ -15,20 +15,56 @@ a:hover {
   font-weight: bold;
   color: white;
 }
+
+h5 {
+  font-weight: bold;
+  background-color: #7e7979;
+  width: 60%;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  height: 50px;
+  padding-top: 5%;
+  color: white;
+}
 /*****************************CLASS**********************************/
-.animated {
-  height: auto;
-  width: auto;
+.animated-left {
+ margin-left:50px ;
+}
+
+.animated-right {
+  margin-left:80px ;
+ }
+
+ .navbar {
+  padding: 8.3% 0 10%;
 }
 
 .navbar-color {
-  font-weight: bolder;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-} 
+  background-color: rgba(0, 0, 0, 0);
+}
 
-.nav-item.dropdown.show {
-  background-color: white;
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: white;
+  font-weight: bold;
+}
+
+.well {
+min-height: 10px;
+width: 60%;
+padding: 10px;
+margin-bottom: 20px;
+background-color: #e3e3e3;
+border: 1px solid #e3e3e3;
+border-radius: 4px;
+
 }
 
 /*****************************ID**********************************/
