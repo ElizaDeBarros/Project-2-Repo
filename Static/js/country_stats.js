@@ -224,7 +224,7 @@ function CreatePlots(country) {
         // Calculates the number of attacks per year for the selected country
         var yearCount ={};
             for (var i = 0; i < countryArray.length; i++) {
-                var theYear = countryArray[i].year;
+                var theYear = countryArray[i].year -1;
                 if (theYear in yearCount) {
                     yearCount[theYear] += 1;
                     if (countryArray[i].Fatal === "Y") {
@@ -246,6 +246,8 @@ function CreatePlots(country) {
                     }
                 }
             };
+            console.log( yearCount);
+            
         // Creates a bar chart         
         var year = [];
         var attacks = []
@@ -323,7 +325,7 @@ function CreatePlots(country) {
                 value: countryArray.length,
                 title: {text: `<span style='font-weight: bold;'><b>Total Shark Attacks<b></span><br><span style='font-weight: normal;'>1980-2018`},
                 type: "indicator",
-                mode: "gauge",
+                mode: "gauge+number",
                 gauge: {
                     axis: {range: [null, 2000]},
                     bar: { color: "orange" },
