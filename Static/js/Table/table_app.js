@@ -11,53 +11,69 @@ d3.csv('\CleanedData.csv').then( function(sharkdata){
         return `<td>${d.Year}</td><td>${d.Date}</td><td>${d.Time}</td><td>${d.Country}</td><td>${d.Type}</td><td>${d.Activity}</td><td>${d.Fatal}</td><td>${d.Species}</td>`;
     });
 
-    
+    var data = sharkdata;
 
-
-    // Select the button
-    var button = d3.select("#filter-btn");
-    var resetbtn = d3.select("#reset-btn");
-    var form = d3.select("form");
     var tbody = d3.select("tbody");
+    var button = d3.select("#filter-btn");
+    var inputField1 = d3.select("#datetime");
+    var inputField2 = d3.select("#city");
+    var inputField3 = d3.select("#species");
+    var inputField4 = d3.select("#activity");
+    var inputField5 = d3.select("#fatal");
+    var resetbtn = d3.select("#reset-btn");
+    var columns = ["Year", "Date", "Country", "Type", "Activity", "Fatal","Species"]
 
+    var populate = (dataInput) => {
 
-    // Complete the event handler function for the form
-    button.on("click", () => { 
+        dataInput.forEach(sharkAttack => {
+            var row = tbody.append("tr");
+            columns.forEach(column => row.append("td").text(sharkAttack[column])
+            )
+        });
+    }
+    // Filter by attribute
+button.on("click", () => {
+	d3.event.preventDefault();
+	var inputDate = inputField1.property("value").trim();
+	var inputCity = inputField2.property("value").toUpperCase().trim();
+    // var inputSpecies = inputField3.property("value").trim();
+    // var inputActivity = inputField4.property("value").trim();
+    // var inputFatal = inputField5.property("value").trim();
 
-        // Prevent the page from refreshing
-        d3.event.preventDefault();
-        // Select the input element and get the raw HTML node
-        var inputElement = d3.select('#country');
-        // Get the value property of the input element
-        var inputValue = inputElement.property('value');
-        var filteredData = sharkdata.filter(country => country.Country === inputValue);
-        // console.log(inputValue);
-        // console.log(filteredData);
+    
+	// Filter by field matching input value
+	var filterDate = data.filter(data => data.Year === inputDate);
+	// console.log(filterDate)
+	var filterCity = data.filter(data => data.Country === inputCity);
+	// console.log(filterCity)
+    // var filterSpecies = data.filter(data => data.Species === inputSpecies);
+    // var filterActivity = data.filter(data => data.Activity === inputActivity);
+    // var filterFatal = data.filter(data => data.Fatal === inputFatal);
+	var filterData = data.filter(data => data.Year === inputDate && data.Country === inputCity);
+	console.log(filterData)
 
-        tbody.html("")
+	// Add filtered sighting to table
+	tbody.html("");
 
-        filteredData.forEach(attack => {
-        
-            //Use d3 to append one table row `tr` for each ufo report object
-                var row =  tbody.append('tr');
-            
-            //Use `Object.entries` to console.log each ufo report value
-                Object.entries(attack).forEach(function([key, value]){
-                    console.log(key, value);
-                    //Use d3 to append 1 cell per ufo report value
-                    var cell = row.append('td');
-            
-                    cell.text(value);
-                });
-            
-            });
+	let response = {
+		filterData, filterCity, filterDate, filterSpecies, filterActivity, filterFatal
+	}
 
-    })
+	if (response.filterData.length !== 0) {
+		populate(filterData);
+	}
+		else if (response.filterData.length === 0 && ((response.filterCity.length !== 0 || response.filterDate.length !== 0))){
+			populate(filterCity) || populate(filterDate);
+	
+		}
+		else {
+			tbody.append("tr").append("td").text("No results found!"); 
+		}
+})
 
-    resetbtn.on("click", () => {
-        tbody.html("");
-        populate(sharkdata)
-        //console.log("Table reset")
-    });
-
+resetbtn.on("click", () => {
+	tbody.html("");
+	populate(data)
+	console.log("Table reset")
+})
 });
