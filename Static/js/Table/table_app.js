@@ -8,7 +8,7 @@ d3.csv('\CleanedData.csv').then( function(sharkdata){
     .enter()
     .append("tr")
     .html(function(d) {
-        return `<td>${d.Year}</td><td>${d.Date}</td><td>${d.Time}</td><td>${d.Country}</td><td>${d.Type}</td><td>${d.Activity}</td><td>${d.Fatal}</td><td>${d.Species}</td>`;
+        return `<td>${d.Year}</td><td>${d.Date}</td><td>${d.Country}</td><td>${d.Type}</td><td>${d.Activity}</td><td>${d.Fatal}</td><td>${d.Species}</td>`;
     });
 
     var data = sharkdata;
@@ -56,7 +56,7 @@ button.on("click", () => {
 	tbody.html("");
 
 	let response = {
-		filterData, filterCity, filterDate, filterSpecies, filterActivity, filterFatal
+		filterData, filterCity, filterDate
 	}
 
 	if (response.filterData.length !== 0) {
