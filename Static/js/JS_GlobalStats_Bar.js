@@ -103,7 +103,7 @@ d3.csv("data/Resources/CleanedData.csv").then(function(attackdata) {
 
 //use d3 to calculate the totals for the pie chart 
 
-d3.csv("CleanedData.csv").then(function(data) {
+d3.csv("data/Resources/CleanedData.csv").then(function(data) {
     maleArray = [];
     femaleArray = [];
     total = data.length;
