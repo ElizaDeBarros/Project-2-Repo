@@ -1,6 +1,6 @@
 // Bar Chart Code
 
-d3.csv("CleanedData.csv").then(function(attackdata) {
+d3.csv("data/Resources/CleanedData.csv").then(function(attackdata) {
     //create an array of only the countries 
     var arr = attackdata.map(item => item.Country)
     //console.log(arr)
