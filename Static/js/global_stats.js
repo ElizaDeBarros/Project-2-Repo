@@ -16,12 +16,25 @@ d3.csv("data/Resources/CleanedData.csv").then(function(cleanData) {
     // Creates a list yes of Types and a list no of Types
     var yesList = [];
     var noList = [];
+    
     for (var i = 0; i < dataArray.length; i++) {
         if(dataArray[i].fatal === 'Y' && dataArray[i].type !=="" && dataArray[i].type !=="Invalid") {
             yesList.push(dataArray[i].type)
         }
         else if (dataArray[i].fatal === 'N' && dataArray[i].type !=="" && dataArray[i].type !=="Invalid") {
             noList.push(dataArray[i].type)
+        }
+    };
+    var bothList = yesList.concat(noList);
+
+    var typeBoth = {};
+    for (var i = 0; i < bothList.length; i++) {
+        theType = bothList[i];
+        if (bothList[i] in typeBoth) {
+            typeBoth[theType] +=1
+        }
+        else {
+            typeBoth[theType] =1
         }
     };
         
@@ -47,76 +60,113 @@ d3.csv("data/Resources/CleanedData.csv").then(function(cleanData) {
         }
     };
 
-    if (Object.keys(typeNo).length > Object.keys(typeYes).length) {
-        colorDomain = Object.keys(typeNo)
-    } else {
-        colorDomain = Object.keys(typeYes)
-    };
    //****************************************CHART SECTION********************************************************************************************************** */   
 
     // set the dimensions and margins of the graph
-    var width = 400
-    height = 400
-    margin = 40
-
-    // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-    var radius = Math.min(width, height) / 2 - margin
-
-    // append the svg object to the div 
-    var svg = d3.select("#dynamicPie")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-    // create 2 data_set
-    var dataYes = typeYes
-    var dataNo = typeNo
-
-    // set the color scale
-    var color = d3.scaleOrdinal()
-    .domain(colorDomain)
-    .range(d3.schemeDark2);
-
-    // A function that create / update the plot for a given variable:
-    function update(data) {
-
-        // Compute the position of each group on the pie:
-        var pie = d3.pie()
-        .value(function(d) {return d.value; })
-        .sort(function(a, b) { return d3.ascending(a.key, b.key);} ) // This make sure that group order remains the same in the pie chart
-        var data_ready = pie(d3.entries(data))
-
-        // map to data
-        var u = svg.selectAll("path")
-        .data(data_ready)
-
-        // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-        u
-        .enter()
-        .append('path')
-        .merge(u)
-        .transition()
-        .duration(1000)
-        .attr('d', d3.arc()
-        .innerRadius(0)
-        .outerRadius(radius)
-        )
-        .attr('fill', function(d){ return(color(d.data.key)) })
-        .attr("stroke", "white")
-        .style("stroke-width", "2px")
-        .style("opacity", 1)
-    }
-
-    // Initialize the plot the non fatal dataset
-    update(dataNo)
-});
-
-
-
- 
-
-
-
+    var width = 360;
+    var height = 360;
     
+    var radius = Math.min(width, height) / 2 
+
+    var color = d3.scaleOrdinal(d3.schemePastel1);
+    // create 3 datasets
+    var dataYes = Object.keys(typeYes).map(function(d) {
+        return {type: d, quantity:typeYes[d]};
+    });
+    var dataNo = Object.keys(typeNo).map(function(d) {
+        return {type: d, quantity:typeNo[d]};
+    });  
+    var dataBoth = Object.keys(typeBoth).map(function(d) {
+        return {type: d, quantity:typeBoth[d]};
+    });
+    console.log(dataYes);
+    // making the chart
+
+    var svg = d3.select('#dynamicPie')
+     .append('svg')
+     .attr('width', width)
+     .attr('height', height)
+     .append('g')
+     .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
+
+     var arc = d3.arc()
+     .innerRadius(radius - 75)
+     .outerRadius(radius);
+
+     var pie = d3.pie()
+     .value(function (d) {
+          return d.quantity;
+     })
+     .sort(null);
+     
+     var path = svg.selectAll('path')
+     .data(pie(dataBoth))
+     .enter()
+     .append('path')
+     .attr('d', arc)
+     .attr('fill', function (d, i) {
+          return color(d.data.type);
+     })
+     .attr('transform', 'translate(0, 0)');
+
+     // adding a legend
+
+    var legendRectSize = 12;
+    var legendSpacing = 9;
+    var legend = svg.selectAll('.legend') //the legend and placement
+    .data(color.domain())
+    .enter()
+    .append('g')
+    .attr('class', 'circle-legend')
+    .attr('transform', function (d, i) {
+        var height = legendRectSize + legendSpacing;
+        var offset = height * color.domain().length / 2;
+        var horz = -2 * legendRectSize - 13;
+        var vert = i * height - offset;
+        return 'translate(' + horz + ',' + vert + ')';
+    });
+    legend.append('circle') 
+    .style('fill', color)
+    .style('stroke', color)
+    .attr('cx', 0)
+    .attr('cy', 0)
+    .attr('r', '.5rem');
+    legend.append('text') 
+    .attr('x', legendRectSize + legendSpacing)
+    .attr('y', legendRectSize - legendSpacing)
+    .text(function (d) {
+        return d;
+    });
+
+    d3.select("button#both")
+     .on("click", function () {
+          change(dataBoth);
+    })
+    d3.select("button#fatal")
+     .on("click", function () {
+          change(dataYes);
+    })
+    d3.select("button#nonFatal")
+     .on("click", function () {
+          change(dataNo)
+    })
+
+    function change(data) {
+        var pie = d3.pie()
+        .value(function (d) {
+            return d.quantity;
+       }).sort(null)(data);
+        var width = 360;
+        var height = 360;
+        var radius = Math.min(width, height) / 2;
+        
+        path = d3.select("#dynamicPie")
+             .selectAll("path")
+             .data(pie); // Compute the new angles
+        var arc = d3.arc()
+             .innerRadius(radius -75)
+             .outerRadius(radius);
+        path.transition().duration(500).attr("d", arc); // redrawing the path with a smooth transition
+        console.log(arc);
+   }
+   });
