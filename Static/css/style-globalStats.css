@@ -1,0 +1,21 @@
+/*****************************CLASS**********************************/
+.navbar {
+    padding: 8.3% 0 10%;
+}
+   
+.navbar-color {
+    background-color: rgba(0, 0, 0, 0);
+}
+   
+.nav-item {
+    padding: 0 18px;
+}
+   
+.nav-link {
+    color: white;
+}
+   
+.nav-link:hover {
+    color: white;
+    font-weight: bold;
+}
