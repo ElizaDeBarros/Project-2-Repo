@@ -43,17 +43,35 @@
             </div>
         </nav>
 
-
-        <canvas id="BarChart" ></canvas>
-        <p>The USA has almost 3 times more shark attacks than the next highest country. </p>
-
-        <canvas id="PieChart" width="5" height="5"></canvas>
-        <p>Based on our annalysis Males are more likely to be attacked by sharks. </p>
-
-        <div id="dynamicPie">
-            <button id="both">Total Attacks</button>
-            <button id="fatal">Fatal Attack</button>
-            <button id="nonFatal">Non-Fatal Attacks</button>
+        <div class="row">
+            <div class="col-md-1 animated-left" style="margin-top: 40px;">
+                <img style="max-width: 50%; height: auto; " class="animated" src="Images/shark_left.gif" alt="shark-gif">
+            </div>
+          <div class="col-md-3" style="margin-left: 40px;">
+            <canvas id="BarChart" ></canvas>
+            <p>The USA has almost 3 times more shark attacks than the next highest country. </p>
+        </div><br>
+        
+        <div class="row" style="border:1px;"style="margin-top: 40px;">
+            <div class="col-md-1 animated-left" style="margin-top: 40px;">
+                <img style="max-width: 50%; height: auto; " class="animated" src="Images/shark_left.gif" alt="shark-gif">
+            </div>
+            <div class="col-md-4 "style="margin-top: 40px;">
+                <!-- Add pie chart -->
+                <canvas id="PieChart" width="5" height="5"></canvas><br>
+                <p style="text-align:right;" style="margin-left: 400px;"></p>>Based on our annalysis Males are more likely to be attacked by sharks. </p>
+            </div>
+            <div class="col-md-7">
+                <!-- Add pie chart -->
+                <div id="dynamicPie">
+                    <button id="both">Total Attacks</button>
+                    <button id="fatal">Fatal Attack</button>
+                    <button id="nonFatal">Non-Fatal Attacks</button>
+                </div>
+            </div>
+            <div class="col-md-1 animated-right" style="margin-top: 300px;">
+                <img style="max-width: 50%; height: auto;" class="animated" src="Images/shark_right.gif" alt="shark-gif">
+            </div>
         </div>
 
         <script type='text/javascript' src='Static/js/JS_GlobalStats_Bar.js'></script>

@@ -80,6 +80,7 @@ d3.csv("data/Resources/CleanedData.csv").then(function(attackdata) {
     }]
     };
     var ctx = document.getElementById('BarChart');
+    ctx.height = 500;
 
     var myBarChart = new Chart(ctx, {
         type: 'bar',
@@ -155,7 +156,7 @@ d3.csv("data/Resources/CleanedData.csv").then(function(data) {
             title: {
                 display: true,
                 text: 'Shark Attacks by Gender',
-                fontSize: 100
+                fontSize: 50
             },
             legend:{
                 font: 50,
