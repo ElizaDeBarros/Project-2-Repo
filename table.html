@@ -3,9 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Statistics Data</title>
+        <title>Data Table</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .jumbotron {
+            text-align: center;
+        }
+    </style>
         <link rel="stylesheet" href="">
     </head>
     <body style='background-image: url("Images/sharkImage.jpg")'>
@@ -32,8 +38,56 @@
                     </ul>
                 </div>
             </nav> <!-- end of navbar -->
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>Shark Attack Data</h1>
+                </div>
+                
+                <div class="container">
+                  <div class="row margin-top-50">
+                    <div >
+                      <aside class="filters">
+                        <div class="panel panel-default" id="box-filter">
+                          <div class="panel-heading">Search</div>
+                          <div class="panel-body">
+                            <form>
+                              <div class="form-group">
+                                <ul class="list-group" id="filters">
+                                  <li class="filter list-group-item">
+                                    <label for="date">Enter a Year</label>
+                                    <input class="form-control" id="datetime" type="text" placeholder="1989">
+                                  </li>
+                                  <!-- Country search -->
+                                  <li class="filter list-group-item nav-item dropdown" id="navbarCollapse">
+                                    <label class="others nav-link active dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enter a Country<span class="sr-only">(current)</span></label>
+                                    <input class="form-control" id="city" type="text" placeholder="USA">
+                                  </li>
+                                  </ul>
+                              </div>
+                              <button id="filter-btn" type="button" class="btn btn-default btn-lg btn-block">Filter Table</button>
+                              <button id="reset-btn" type="reset" class="btn btn-default btn-lg btn-block">Reset Table</button>
+                            </form>
+                          </div>
+                        </div>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                      <table id="myTable" class="table table-striped" >
+                            <thead>
+                                <tr><th>Year</th><th>Date</th><th>Country</th><th>Type</th><th>Activity</th><th>Fatal</th><th>Species</th></tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <script src="https://d3js.org/d3.v5.min.js"></script>
+          <script type='text/javascript' src='Static/js/Table/table_app.js'></script>
+
+
+
             
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-1 animated-left">
                     <img style="max-width: 50%;" src="Images/shark_left.gif" alt="shark-gif">
                 </div>
@@ -44,7 +98,7 @@
                     <img style="max-width: 50%;" src="Images/shark_right.gif" alt="shark-gif">
                 </div>
             </div>
-        </div>
+        </div> -->
         
         <!-- Boostrap scripts -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -60,6 +114,6 @@
 
 	<!-- JS -->
     <!-- Needs js code -->
-	<script type="text/javascript" src="Static/js/"></script>
+	<!-- <script type="text/javascript" src="Static/js/"></script> -->
     </body>
 </html>
