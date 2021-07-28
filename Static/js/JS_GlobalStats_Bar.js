@@ -51,17 +51,17 @@ d3.csv("data/Resources/CleanedData.csv").then(function(attackdata) {
           label: 'Total Shark Attacks',
           data: chartData,
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)',
-            'rgba(0,0,158, 0.2)',
-            'rgba(255,168,212, 0.2)',
-            'rgba(92,255,92,0.2)',
-            'rgba(255,31,31,0.2)'
+            'rgba(255, 99, 132, 0.4)',
+            'rgba(255, 159, 64, 0.4)',
+            'rgba(255, 205, 86, 0.4)',
+            'rgba(75, 192, 192, 0.4)',
+            'rgba(54, 162, 235, 0.4)',
+            'rgba(153, 102, 255, 0.4)',
+            'rgba(201, 203, 207, 0.4',
+            'rgba(0,0,158, 0.4)',
+            'rgba(255,168,212, 0.4)',
+            'rgba(92,255,92,0.4)',
+            'rgba(255,31,31,0.4)'
         ],
         borderColor: [
             'rgb(255, 99, 132)',
@@ -79,7 +79,18 @@ d3.csv("data/Resources/CleanedData.csv").then(function(attackdata) {
         borderWidth: 1
     }]
     };
+    Chart.plugins.register({
+        beforeDraw: function(chartInstance, easing) {
+          var ctx = chartInstance.chart.ctx;
+          ctx.fillStyle = 'rgba(224,224,224,0.5)'; // your color here
+      
+          var chartArea = chartInstance.chartArea;
+          ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+        }
+      });
+    
     var ctx = document.getElementById('BarChart');
+    ctx.height = 200;
 
     var myBarChart = new Chart(ctx, {
         type: 'bar',
@@ -88,7 +99,8 @@ d3.csv("data/Resources/CleanedData.csv").then(function(attackdata) {
             scales: {
               y: {
                 beginAtZero: true
-              }
+              },
+              maintainAspectRatio: false
             }
           }
     });
@@ -155,13 +167,14 @@ d3.csv("data/Resources/CleanedData.csv").then(function(data) {
             title: {
                 display: true,
                 text: 'Shark Attacks by Gender',
-                fontSize: 100
+                fontSize: 20,
+                color: 'rgb(107, 107, 107)'
             },
             legend:{
                 font: 50,
                },
             responsive: true,
-            maintainAspectRatio: true,
+            
         }
     });
 });
