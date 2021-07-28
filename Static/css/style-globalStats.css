@@ -19,3 +19,8 @@
     color: white;
     font-weight: bold;
 }
+body {
+    font-family: 'Zilla Slab', serif;
+    padding: 100;
+    margin: 0;
+  }
