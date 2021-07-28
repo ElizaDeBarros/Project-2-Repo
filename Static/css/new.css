@@ -51,8 +51,15 @@ div#gauge {
 
 .navbar-toggler {
     
-    background-color: antiquewhite !important;
+    background-color: #fff !important;
     color: #000;
     
 }
+}
+
+.navbar-toggler {
+    
+    background-color: #fff !important;
+    color: #000;
+    
 }

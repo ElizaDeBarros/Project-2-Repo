@@ -285,7 +285,8 @@ function CreatePlots(country) {
             bargap: 0.2
             
         };
-            Plotly.newPlot("bar-chart", dataBar, layoutBar);
+        var config={responsive:true};
+            Plotly.newPlot("bar-chart", dataBar, layoutBar,config);
             // });
                 
         // Create a donut chart that displays percentage of attack by time of the day
@@ -314,7 +315,8 @@ function CreatePlots(country) {
             paper_bgcolor:'rgba(255,255,255,0.5)',
             plot_bgcolor:'rgba(255,255,255,0.4)',
         };    
-        Plotly.newPlot('pie-chart', dataPie, layoutPie);
+        var config={responsive:true};
+        Plotly.newPlot('pie-chart', dataPie, layoutPie,config);
 
          // Create a gauge chart that displays total number of attacks in a country
         var dataGauge = [
@@ -350,7 +352,8 @@ function CreatePlots(country) {
             paper_bgcolor:'rgba(255,255,255,0.5)',
             plot_bgcolor:'rgba(255,255,255,0.4)',
         };
-        Plotly.newPlot('gauge', dataGauge, layoutGauge);
+        var config={responsive:true};
+        Plotly.newPlot('gauge', dataGauge, layoutGauge,config);
 
 
     });
