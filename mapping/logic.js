@@ -29,6 +29,7 @@ var countries = [
     {
         name: "Brazil",
         location: [-14.2350, -51.9253],
+        attacks: 39
 
 
 
@@ -36,6 +37,7 @@ var countries = [
     {
         name: "Germany",
         location: [51.1657, 10.4515],
+        
 
     },
     {
@@ -78,22 +80,24 @@ var countries = [
     {
         name: "USA",
         location: [37.09024, -95.7128],
-        attacks : 1035
+        attacks : 1075
     },
     {
         name: "Australia",
         location: [-25.2743, 133.7751],
+        attacks: 331
 
     },
     {
         name: "South Africa",
         location: [-30.5594, 22.9375],
+        attacks: 183
 
     },
     {
         name: "Reunion",
         location: [-21.1151, 55.5363],
-        points: 144
+        
     },
     {
         name: "Costa Rica",
@@ -108,16 +112,19 @@ var countries = [
     {
         name: "Bahamas",
         location: [25.0342, -77.3962],
+        attacks: 38
 
     },
     {
         name: "New Caledonia",
         location: [-20.9043, 165.6180],
+        attacks: 21
 
     },
     {
         name: "Cuba",
         location: [21.5217, -77.7811],
+        
 
     },
     {
@@ -128,6 +135,7 @@ var countries = [
     {
         name: "New Zealand",
         location: [-40.9005, 174.8859],
+        attacks: 21
 
     },
     {
@@ -153,6 +161,7 @@ var countries = [
     {
         name: "Mexico",
         location: [23.6345, -102.5527],
+        attacks: 14
 
     },
     {
@@ -168,6 +177,7 @@ var countries = [
     {
         name: "Egypt",
         location: [26.8205, 30.8024],
+        attacks: 12
     },
     {
         name: "French Polynesia",
@@ -177,6 +187,7 @@ var countries = [
     {
         name: "Fiji",
         location: [-16.5781, 179.4144],
+        attacks: 10
 
     },
     {
