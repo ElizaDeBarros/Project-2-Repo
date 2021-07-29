@@ -8,6 +8,8 @@
         <!-- Next two scripts are needed for Charts_JS and need to move into the html page for global stats -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+
+        
         <title>Global Stats Bar Chart</title>
         <link rel="icon" href="favicon.ico">
         <link rel="stylesheet" href="Static/css/style-globalStats.css">
@@ -37,46 +39,47 @@
                     </li>
                     <li class="nav-item active">
                         <!-- Jorene, href for table here-->
-                        <a class="nav-link " href="#">Data</a>
+                        <a class="nav-link " href="table.html">Data</a>
                     </li>
                 </ul>
             </div>
         </nav>
-
+        
 
         <div class="row">
-            <div class="col-md-1 animated-left" style="margin-top: 40px;">
-                <img style="max-width: 50%; height: auto; " class="animated" src="Images/shark_left.gif" alt="shark-gif">
+            <div class="col-md-1">
+                <img  class="animated-left" src="Images/shark_left.gif" alt="shark-gif">
             </div>
-          <div class="col-md-7" style="margin-left: 40px;">
+          <div class="col-md-10"">
             <canvas id="BarChart" ></canvas>
-            <p>The USA has almost 3 times more shark attacks than the next highest country. </p>
-        </div><br>
+            <!-- <p>The USA has almost 3 times more shark attacks than the next highest country. </p> -->
+            </div>
+        </div>
         
-        <div class="row" style="border:1px;"style="margin-top: 40px;">
-            <div class="col-md-1 animated-left" style="margin-top: 40px;">
-                <img style="max-width: 50%; height: auto; " class="animated" src="Images/shark_left.gif" alt="shark-gif">
-            </div>
-            <div class="col-md-5 "style="margin-top: 40px;">
+        <div class="row">
+          
+            <div class="col-lg-5 offset-lg-2" style="margin:auto;">
                 <!-- Add pie chart -->
-                <canvas id="PieChart" ></canvas><br>
-                <p style="text-align:right;" style="margin-left: 400px;"></p>Based on our annalysis Males are more likely to be attacked by sharks. </p>
+                <canvas id="PieChart" </canvas><br>
+                <!-- <p style="text-align:right;" style="margin-left: 400px;"></p>Based on our annalysis Males are more likely to be attacked by sharks. </p> -->
             </div>
-            <div class="col-md-5">
+            <div class="col-lg-5" style="margin:auto;">
                 <!-- Add pie chart -->
                 <div id="dynamicPie">
+                    
+                </div>
+                <br>
                     <button id="both">Total Attacks</button>
                     <button id="fatal">Fatal Attack</button>
                     <button id="nonFatal">Non-Fatal Attacks</button>
-                </div>
-            </div>
-            <div class="col-md-1 animated-right" style="margin-top: 300px;">
-                <img style="max-width: 50%; height: auto;" class="animated" src="Images/shark_right.gif" alt="shark-gif">
-            </div>
+            <!-- <div class="col-md-1>
+                <img class="animated-right" src="Images/shark_right.gif" alt="shark-gif">
+            </div> -->
 
         </div>
 
-        <script type='text/javascript' src='Static/js/JS_GlobalStats_Bar.js'></script>
+
+        <!-- <script type='text/javascript' src='Static/js/JS_GlobalStats_Bar.js'></script> -->
         <script type='text/javascript' src='Static/js/global_stats.js'></script>
     </body>
 </html>
