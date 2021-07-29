@@ -78,7 +78,7 @@ var countries = [
     {
         name: "USA",
         location: [37.09024, -95.7128],
-
+        attacks : 1035
     },
     {
         name: "Australia",
@@ -337,50 +337,35 @@ var countries = [
 
     },
 ];
-var url = ("csvjson.json");
+
+
+for (var i = 0; i < countries.length; i++) {
+    var country = countries[i];
+    L.marker(country.location)
+      .bindPopup("<h1>" + country.name + "</h1> <hr> <h3>Attacks " + country.attacks + "</h3>")
+      .addTo(myMap);
+  }
+  
+//var url = ("csvjson.json");
 
 
 // Grab the data with d3
-d3.json(url).then(function (response) {
-
-    var countryArray = [];
-    // Iterate through the data
-    for (var i = 0; i < response.length; i++) {
-
-        var country_name = response[i].Country;
-
-        if (response[i].Country in countryArray) {
-            countryArray[country_name] +=1
-        }
-        else {
-            for (var j = 0; j < countries.length; j++) {
-                if (country_name === countries[j].name) {
-
-                    countryArray.push({
-                        country: country_name,
-                        country_count: country_name =1,
-                        coordinates: countries.location
-                    });
-                };
-            };
-        };
-    };
 
     //console.log(countryArray)
 
     // Create a new marker cluster group
-    var markers = L.markerClusterGroup();
+    //var markers = L.markerClusterGroup();
 
     // Loop through data
-    for (var i = 0; i < countryArray.length; i++) {
+    //for (var i = 0; i < countryArray.length; i++) {
 
         // Add a new marker to the cluster group and bind a pop-up
-        markers.addLayer(L.marker(countryArray.coordinates)
-        .bindPopup(countryArray.country));
-    }
+        //markers.addLayer(L.marker(countryArray.coordinates)
+        //.bindPopup(countryArray.country));
+   // }
 
     // Add our marker cluster layer to the map
-    myMap.addLayer(markers);
+    //myMap.addLayer(markers);
 
-});
+//});
 
