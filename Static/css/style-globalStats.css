@@ -19,3 +19,49 @@
     color: white;
     font-weight: bold;
 }
+body {
+    font-family: 'Zilla Slab', serif;
+    padding: 100;
+    margin: 0;
+  }
+
+.graph-svg-component {
+    background-color: rgb(255, 255, 255, 0.5);
+
+}
+
+.animated-left {
+    position: absolute;
+    left:50px;
+    top: 80px;
+    height: 20%;
+}
+   
+.animated-right {
+    position: absolute;
+    right:50px;
+    bottom: 80px;
+    height: 20%;
+}
+
+/*****************************ID**********************************/
+#BarChart {
+    height: 160%;
+    
+}
+
+#dynamicPie{
+    position: relative;
+    display: block;
+    /* justify-content: center; horizontal */
+    align-items: center; 
+    
+}
+
+#PieChart {
+    position: relative;
+    display: block;
+    /* justify-content: center; horizontal */
+    align-items: center; 
+    
+}

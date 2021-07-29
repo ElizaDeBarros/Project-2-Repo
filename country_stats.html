@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="Static/css/style-countryStats.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
-    </head>
+      </head>
 
 
   <body style='background-image: url("Images/sharkImage.jpg")'>
@@ -29,43 +29,43 @@
                 </li>
                 <li class="nav-item active ">
                     <!-- href for global stats here -->
-                    <a class="nav-link" href="HTML_GlobalStats_Bar.html">Global Statistics</a>   
+                    <a class="nav-link" href="global_stats.html">Global Statistics</a>   
                 </li>
                 <li class="nav-item active">
                     <!-- Jorene, href for table here-->
-                    <a class="nav-link " href="#">Data</a>
+                    <a class="nav-link " href="data.html">Data</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <div class="row">
-        <div class="col-md-1 animated-left" style="margin-top: 40px;">
-            <img style="max-width: 30%; height: auto; " class="animated" src="Images/shark_left.gif" alt="shark-gif">
+        <div class="col-lg-2">
+            <img class="animated-left" src="Images/shark_left.gif" alt="shark-gif">
         </div>
-      <div class="col-md-2" >
+      <div class="col-lg-2" >
           <!-- Add dropdown here -->
           <h5>Select Country</h5>
           <select id="selDataset" class="well" onchange="optionChanged(this.value)"></select>
         </div>
-        <div class="col-md-7" ">
+        <div class="col-lg-7" ">
             <!-- Add bar chart here -->
             <div id="bar-chart"></div>
         </div>
         <
     </div><br>
 
-    <div class="row" style="border:1px;">
-        <div class="col-md-3 offset-md-2">
+    <div class="row">
+        <div class="col-lg-3 offset-lg-3">
             <!-- Add pie chart -->
             <div id="pie-chart"></div>
-        </div>
-        <div class="col-md-4">
+        </div><br>
+        <div class="col-lg-5">
             <!-- Add gauge chart -->
             <div id="gauge"></div>
         </div>
-        <div class="col-md-1 animated-right" style="margin-top: 300px;">
-            <img style="max-width: 50%; height: auto;" class="animated" src="Images/shark_right.gif" alt="shark-gif">
+        <div class="col-lg-1 " style="margin-bottom: 40px;">
+            <img class="animated-right" src="Images/shark_right.gif" alt="shark-gif">
         </div>
     </div>
     

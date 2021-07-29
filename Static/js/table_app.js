@@ -1,4 +1,4 @@
-d3.csv('\CleanedData.csv').then( function(sharkdata){
+d3.csv('data/Resources/CleanedData.csv').then( function(sharkdata){
     //console.log(sharkdata);
 
     
