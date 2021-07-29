@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Data Table</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="Static/css/style-table.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .jumbotron {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body style='background-image: url("Images/sharkImage4.png")'>
+        <!-- <div class="container-fluid"> -->
+            <!--Navbar adjustments-->
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-full navbar-color title" style="background-color: rgba(0, 0, 0, 0);">
+            
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active ">
+                        <!-- href for country stats here -->
+                        <a class="nav-link" href="country_stats.html">Country Statistics</a>  
+                    </li>
+                        <li class="nav-item active ">
+                            <!-- href for global stats here -->
+                            <a class="nav-link" href="global_stats.html">Global Statistics</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav> <!-- end of navbar -->
+            
+            <div class="row">
+                <div class="col-md-1 animated-left">
+                    <img style="max-width: 50%;" src="Images/shark_left.gif" alt="shark-gif">
+                </div>
+                <div class="container">
+                    <div class="jumbotron">
+                        <h1>Shark Attack Data</h1>
+                    </div>
+    
+                    <div class="container">
+                      <div class="row margin-top-50">
+                        <div >
+                          <aside class="filters">
+                            <div class="panel panel-default" id="box-filter">
+                              <div class="panel-heading">Search</div>
+                              <div class="panel-body">
+                                <form>
+                                  <div class="form-group">
+                                    <ul class="list-group" id="filters">
+                                      <li class="filter list-group-item">
+                                        <label for="date">Enter a Year</label>
+                                        <input class="form-control" id="datetime" type="text" placeholder="1989">
+                                      </li>
+                                      <!-- Country search -->
+                                      <li class="filter list-group-item nav-item dropdown" id="navbarCollapse">
+                                        <label class="others nav-link active dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enter a Country<span class="sr-only">(current)</span></label>
+                                        <input class="form-control" id="city" type="text" placeholder="USA">
+                                      </li>
+                                      </ul>
+                                  </div>
+                                  <button id="filter-btn" type="button" class="btn btn-default btn-lg btn-block">Filter Table</button>
+                                  <button id="reset-btn" type="reset" class="btn btn-default btn-lg btn-block">Reset Table</button>
+                                </form>
+                              </div>
+                            </div>
+    
+                    <div class="row">
+                        <div class="col-md-12">
+                          <table id="myTable" class="table table-striped">
+                                <thead>
+                                    <tr><th style="color:white;">Year</th><th style="color:white;">Date</th><th style="color:white;">Country</th><th style="color:white;">Type</th><th  style="color:white;">Activity</th><th  style="color:white;">Fatal</th><th  style="color:white;">Species</th></tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <script src="https://d3js.org/d3.v5.min.js"></script>
+              <script type='text/javascript' src='Static/js/table_app.js'></script>
+                    <div class="col-md-1 animated-right">
+                    <img style="max-width: 50%;" src="Images/shark_right.gif" alt="shark-gif">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Boostrap scripts -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- D3 script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Sacramento&display=swap" rel="stylesheet">
+
+	<!-- JS -->
+    <!-- Needs js code -->
+	<script type="text/javascript" src="Static/js/table_app.js"></script>
+    </body>
+</html>
