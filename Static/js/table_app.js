@@ -8,7 +8,7 @@ d3.csv('data/Resources/CleanedData.csv').then( function(sharkdata){
     .enter()
     .append("tr")
     .html(function(d) {
-        return `<td>${d.Year}</td><td>${d.Date}</td><td>${d.Country}</td><td>${d.Type}</td><td>${d.Activity}</td><td>${d.Fatal}</td><td>${d.Species}</td>`;
+        return `<td style="color:white;">${d.Year}</td><td td style="color:white;">${d.Date}</td><td td style="color:white;">${d.Country}</td><td td style="color:white;">${d.Type}</td><td td style="color:white;">${d.Activity}</td><td td style="color:white;">${d.Fatal}</td><td td style="color:white;">${d.Species}</td>`;
     });
 
     var data = sharkdata;
@@ -67,7 +67,7 @@ button.on("click", () => {
 	
 		}
 		else {
-			tbody.append("tr").append("td").text("No results found!"); 
+			tbody.append("tr").append("td").text('No results found!'); 
 		}
 })
 
