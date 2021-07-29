@@ -28,12 +28,18 @@ h5 {
 }
 /*****************************CLASS**********************************/
 .animated-left {
- margin-left:50px ;
+  position: absolute;
+  left:50px;
+  top: 80px;
+  height: 20%;
 }
-
+ 
 .animated-right {
-  margin-left:80px ;
- }
+  position: absolute;
+  right:50px;
+  bottom: 80px;
+  height: 20%;
+}
 
  .navbar {
   padding: 8.3% 0 10%;
@@ -69,3 +75,40 @@ border-radius: 4px;
 
 /*****************************ID**********************************/
 
+#gauge{
+  display : block;
+  margin: auto;
+  justify-content: center; /* horizontal */
+  align-items: center; 
+  }
+
+#pie-chart {
+  display : block;
+  margin: auto;
+  justify-content: center; /* horizontal */
+  align-items: center; 
+  }
+
+/*****************************responsiveness**********************************/
+  @media(max-width:768px){
+    h5 {
+      font-weight: bold;
+      
+      width: 30%;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      font-size: 0.3rem;
+      padding: 0;
+      color: white;
+    }
+
+    .well {
+      min-height: 10px;
+      width: 30%;
+      padding: 10px;
+      
+      background-color: #e3e3e3;
+      border: 1px solid #e3e3e3;
+      border-radius: 4px;
+
+}
