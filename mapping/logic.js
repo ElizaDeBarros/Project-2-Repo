@@ -366,7 +366,7 @@ d3.json(url).then(function (response) {
         };
     };
 
-    //console.log(dataArray)
+    //console.log(countryArray)
 
     // Create a new marker cluster group
     var markers = L.markerClusterGroup();
