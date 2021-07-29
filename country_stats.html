@@ -5,7 +5,9 @@
         <meta charset="UTF-8">
         <title>Shark Attacks</title>
         <link rel="icon" href="favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Static/css/style-countryStats.css">
+        <link rel="stylesheet" href="Static/css/new.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
       </head>
@@ -16,7 +18,8 @@
      
      
     <!--Navbar adjustments-->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-full navbar-color title" style="background-color: rgba(0, 0, 0, 0);">
+     <nav class="navbar navbar-expand-lg navbar-light navbar-full navbar-color title"
+      style="background-color: rgba(250, 250, 250, 0.7); margin-bottom: 40px;">
         
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,35 +42,34 @@
         </div>
     </nav>
 
-    <div class="row">
-        <div class="col-lg-2">
-            <img class="animated-left" src="Images/shark_left.gif" alt="shark-gif">
+     <div class="row " style="margin-bottom: 15px;">
+        <div class="col-md-1 set-shark" style="margin-top: 40px;">
+            <!-- <img style="max-width: 30%; height: auto; " class="animated" src="Images/shark_left.gif" alt="shark-gif"> -->
         </div>
-      <div class="col-lg-2" >
-          <!-- Add dropdown here -->
-          <h5>Select Country</h5>
+      
+      <div class="col-md-3 set-center" >
+          <h1 class="set-country">Select Country</h1>
           <select id="selDataset" class="well" onchange="optionChanged(this.value)"></select>
         </div>
-        <div class="col-lg-7" ">
-            <!-- Add bar chart here -->
+        <div class="col-md-7 set-box1">
             <div id="bar-chart"></div>
         </div>
         
-    </div><br>
-
-    <div class="row">
-        <div class="col-lg-3 offset-lg-3">
-            <!-- Add pie chart -->
-            <div id="pie-chart"></div>
-        </div><br>
-        <div class="col-lg-5">
-            <!-- Add gauge chart -->
-            <div id="gauge"></div>
-        </div>
-        <div class="col-lg-1 " style="margin-bottom: 40px;">
-            <img class="animated-right" src="Images/shark_right.gif" alt="shark-gif">
-        </div>
     </div>
+
+    <br>
+
+    <div class="row" style="border:1px; margin-bottom: 15px;">
+        <div class="col-md-6 pb-5 set-center set-pie-chart">
+            <div id="pie-chart"></div>
+        </div>
+        <div class="col-md-4 set-center set-gauge-chart">
+            <div id="gauge"></div>
+           
+        </div>
+       
+    </div>
+    
     
 
         
