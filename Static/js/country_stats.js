@@ -219,50 +219,73 @@ function CreatePlots(country) {
 
         //-----------------------------------------------Time Count end---------------------------------------------------------------------------
         
-        var theYearfatalYes = {}
-        var theYearfatalNo = {}
-        // Calculates the number of attacks per year for the selected country
-        var yearCount ={};
-            for (var i = 0; i < countryArray.length; i++) {
-                var theYear = countryArray[i].year -1;
-                if (theYear in yearCount) {
-                    yearCount[theYear] += 1;
-                    if (countryArray[i].Fatal === "Y") {
-                        theYearfatalYes[theYear] += 1; 
-                    }
-                    else {
-                        theYearfatalNo[theYear] += 1;
-                    }
-                }
-                else{
-                    yearCount[theYear] = 1;
-                    if (countryArray[i].Fatal === "Y") {
-                        theYearfatalYes[theYear] = 1;
-                        theYearfatalNo[theYear] = 0; 
-                    }
-                    else {
-                        theYearfatalYes[theYear] = 0;
-                        theYearfatalNo[theYear] = 1;
-                    }
-                }
-            };
-            console.log( yearCount);
+        // Creates a list yes of Types and a list no of Types
+        var yesList = [];
+        var noList = [];
+        for (var i = 0; i < (countryArray.length); i++) {
+            if(countryArray[i].fatal === 'Y') {
+                yesList.push((countryArray[i].year)-1)
+            }
+            else {
+                noList.push((countryArray[i].year-1))
+            }
+        };
             
-        // Creates a bar chart         
-        var year = [];
-        var attacks = []
-        Object.entries(yearCount).forEach(([key,value]) => {
-            year.push(key);
-            attacks.push(value); 
-        }); 
-                    
-        var barTrace = {
-            x: year,
-            y: attacks,
-            type: "bar",
+        var yearYes = {}; 
+        for (var i = 0; i < yesList.length; i++) {
+            theYear = yesList[i];
+            if (yesList[i] in yearYes) {
+                yearYes[theYear] +=1
+            }
+            else {
+                yearYes[theYear] =1
+            }
         };
 
-        var dataBar = [barTrace];
+        var yearNo = {}; 
+        for (var i = 0; i < noList.length; i++) {
+            theYear = noList[i];
+            if (noList[i] in yearNo) {
+                yearNo[theYear] +=1
+            }
+            else {
+                yearNo[theYear] =1
+            }
+        };
+
+          
+        // Creates a bar chart         
+        var yearFatal = [];
+        var attacksFatal = []
+        Object.entries(yearYes).forEach(([key,value]) => {
+            yearFatal.push(key);
+            attacksFatal.push(value); 
+        }); 
+
+        var yearNonFatal = [];
+        var attacksNonFatal = []
+        Object.entries(yearNo).forEach(([key,value]) => {
+            yearNonFatal.push(key);
+            attacksNonFatal.push(value); 
+        }); 
+         
+        
+        var barTraceFatal = {
+            x: yearFatal,
+            y: attacksFatal,
+            name: 'Fatal',
+            type: 'bar'
+        };
+          
+        var barTraceNonFatal = {
+            x: yearNonFatal,
+            y: attacksNonFatal,
+            name: 'Non Fatal',
+            type: 'bar'
+        };
+          
+        var dataBar = [barTraceNonFatal, barTraceFatal];
+       
         var layoutBar = {
             title: `<span span style='font-weight: bold;'><b>Shark Attacks per Year - ${country} <b></span>`,
             xaxis: {autorange: true, 
@@ -279,14 +302,16 @@ function CreatePlots(country) {
                             color: 'rgb(107, 107, 107)'
                         }     
                     },
+            barmode: 'stack',
             paper_bgcolor:'rgba(255,255,255,0.5)',
             plot_bgcolor:'rgba(255,255,255,0.4)',
             maker: {color: 'rgb(135, 190, 98, 1.0)'},
             bargap: 0.2
-            
         };
+
+            
         var config={responsive:true};
-            Plotly.newPlot("bar-chart", dataBar, layoutBar,config);
+            Plotly.newPlot("bar-chart", dataBar, layoutBar, config);
             // });
                 
         // Create a donut chart that displays percentage of attack by time of the day
@@ -299,7 +324,6 @@ function CreatePlots(country) {
         }];
                   
         var layoutPie = {
-           
             title: `<span span style='font-weight: bold;'><b>Shark Attacks - Time of the Day<b></span>`,
             
             annotations: [
@@ -314,9 +338,9 @@ function CreatePlots(country) {
             showlegend: false,
             paper_bgcolor:'rgba(255,255,255,0.5)',
             plot_bgcolor:'rgba(255,255,255,0.4)',
-        };    
-        var config={responsive:true};
-        Plotly.newPlot('pie-chart', dataPie, layoutPie,config);
+        };
+                var config={responsive:true};
+        Plotly.newPlot('pie-chart', dataPie, layoutPie, config);
 
          // Create a gauge chart that displays total number of attacks in a country
         var dataGauge = [
@@ -352,17 +376,12 @@ function CreatePlots(country) {
             paper_bgcolor:'rgba(255,255,255,0.5)',
             plot_bgcolor:'rgba(255,255,255,0.4)',
         };
+     
         var config={responsive:true};
-        Plotly.newPlot('gauge', dataGauge, layoutGauge,config);
+        Plotly.newPlot('gauge', dataGauge, layoutGauge, config);
 
 
     });
 };
        
-
-
-
-
-        
-
 init();

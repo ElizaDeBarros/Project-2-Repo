@@ -18,7 +18,8 @@
      
      
     <!--Navbar adjustments-->
-    <nav class="navbar navbar-expand-lg navbar-light navbar-full navbar-color title" style="background-color: rgba(0, 0, 0, 0);">
+     <nav class="navbar navbar-expand-lg navbar-light navbar-full navbar-color title"
+      style="background-color: rgba(250, 250, 250, 0.7); margin-bottom: 40px;">
         
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,44 +32,44 @@
                 </li>
                 <li class="nav-item active ">
                     <!-- href for global stats here -->
-                    <a class="nav-link" href="#">Global Statistics</a>   
+                    <a class="nav-link" href="global_stats.html">Global Statistics</a>   
                 </li>
                 <li class="nav-item active">
                     <!-- Jorene, href for table here-->
-                    <a class="nav-link " href="#">Data</a>
+                    <a class="nav-link " href="table.html">Data</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="row " style="margin-bottom: 15px;">
+     <div class="row " style="margin-bottom: 15px;">
         <div class="col-md-1 set-shark" style="margin-top: 40px;">
             <!-- <img style="max-width: 30%; height: auto; " class="animated" src="Images/shark_left.gif" alt="shark-gif"> -->
         </div>
+      
       <div class="col-md-3 set-center" >
-          <!-- Add dropdown here -->
-          <h5 class="set-country">Select Country</h5>
+          <h1 class="set-country">Select Country</h1>
           <select id="selDataset" class="well" onchange="optionChanged(this.value)"></select>
         </div>
         <div class="col-md-7 set-box1">
-            <!-- Add bar chart here -->
             <div id="bar-chart"></div>
         </div>
-        <
-    </div><br>
+        
+    </div>
+
+    <br>
 
     <div class="row" style="border:1px; margin-bottom: 15px;">
-        <div class="col-md-6 pb-5 set-center set-box" style="text-align: -webkit-center; padding-left: 10px;    margin-left: 85px;">
-            <!-- Add pie chart -->
+        <div class="col-md-6 pb-5 set-center set-pie-chart">
             <div id="pie-chart"></div>
         </div>
-        <div class="col-md-4 ">
-            <!-- Add gauge chart -->
+        <div class="col-md-4 set-center set-gauge-chart">
             <div id="gauge"></div>
            
         </div>
        
     </div>
+    
     
 
         

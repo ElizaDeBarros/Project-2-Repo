@@ -14,14 +14,19 @@ relations between various aspects of the data.
 
 HOW TO RUN
 
-We need a live server to run this application
-Add Maps Api key in “config.js”
+1-Anaconda3 to run the python script
+2-We need a local (xampp/vampp) or live server to run this application
+3-Add Maps Api key in “config.js”
+
 
 Features:
+1-We have main dashboard where we can search multiple countries in map.
+2-Able to check the stats for multiple countries.
+3-We can pull country data from csv file by year or by country.
+4-We can Showing data in the bar Chart Pie chart and gauge.
+5-Filter shark attack statistics by Year and By Country
+6-Review and analyze shark attacks as a graphical representation (Graph and Pie chart).
 
-We have main dashboard where we can search multiple countries in map.
-Able to check the stats for multiple countries.
-We can pull country data from csv file by year or by country.
-We can Showing data in the bar Chart Pie chart and gauge.
+
 
 
