@@ -63,8 +63,8 @@ d3.csv("data/Resources/CleanedData.csv").then(function(cleanData) {
    //****************************************CHART SECTION********************************************************************************************************** */   
 
     // set the dimensions and margins of the graph
-    var width = 560;
-    var height = 560;
+    var width = 460;
+    var height = 460;
     var margin = 20
     
     var radius = (Math.min(width, height) / 2 ) - margin
@@ -85,8 +85,10 @@ d3.csv("data/Resources/CleanedData.csv").then(function(cleanData) {
 
     var svg = d3.select('#dynamicPie')
      .append('svg')
-     .attr('width', width)
-     .attr('height', height)
+     .attr('width', '100%')
+     .attr('height', '100%')
+     .attr('viewBox','0 0 ' + height + ' ' + width)
+      .attr('preserveAspectRatio', 'xMinYMin')
      .attr("class", "graph-svg-component")
      .append('g')
      .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
@@ -290,7 +292,8 @@ d3.csv("data/Resources/CleanedData.csv").then(function(attackdata) {
                         beginAtZero: true
                     }
                 }]
-            }
+            },
+            responsive: true,
           }
     });
 });
