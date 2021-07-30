@@ -5,8 +5,13 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  font-weight: bold;
+  color: white;
+}
+
 body {
-  font-family: 'Montserrat';
+  font-family: 'Zilla Slab', serif;
   padding: 0;
   margin: 0;
 }

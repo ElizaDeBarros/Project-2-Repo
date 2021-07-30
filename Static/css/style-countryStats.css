@@ -1,0 +1,194 @@
+/*****************************TAG STYLES**********************************/
+body {
+  margin:0;
+  max-width: 100%;
+  text-align: center;
+  font-family: 'Zilla Slab', serif;
+  height: 100%; 
+  overflow-x: hidden;
+  }
+
+a {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  font-weight: bold;
+  color: white;
+}
+
+h5 {
+  font-weight: bold;
+  background-color: #7e7979;
+  width: 60%;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  height: 50px;
+  padding-top: 5%;
+  color: white;
+}
+
+   
+/*****************************CLASS**********************************/
+.animated-left {
+  position: absolute;
+  left:50px;
+  top: 80px;
+  height: 20%;
+}
+ 
+.animated-right {
+  position: absolute;
+  right:50px;
+  bottom: 80px;
+  height: 20%;
+}
+
+ .navbar {
+  padding: 8.3% 0 10%;
+}
+
+.navbar-color {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: white;
+  font-weight: bold;
+}
+
+.well {
+min-height: 10px;
+width: 100%;
+padding: 10px;
+margin-bottom: 20px;
+background-color: #e3e3e3;
+border: 1px solid #e3e3e3;
+border-radius: 4px;
+
+}
+ .set-country
+    {
+
+        padding: 12px;
+    border-radius: 5px;
+      background-color: #e3e3e3;
+    font-size: 1.2rem;
+}
+.navbar-toggler {
+    
+    background-color: #fff !important;
+    color: #000;
+    
+}
+.set-pie-chart {
+    width: 100% !important;
+    margin-right: 10px;
+    margin-left: 85px; 
+}
+/*****************************ID**********************************/
+
+#gauge{
+  display : block;
+  margin: auto;
+  justify-content: center; /* horizontal */
+  align-items: center; 
+  }
+
+#pie-chart {
+  display : block;
+  margin: auto;
+  justify-content: center; /* horizontal */
+  align-items: center; 
+  }
+
+/*****************************responsiveness**********************************/
+  @media(max-width:768px){
+    h5 {
+      font-weight: bold;
+      
+      width: 30%;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      font-size: 0.3rem;
+      padding: 0;
+      color: white;
+    }
+
+    .well {
+      min-height: 10px;
+      width: 100%;
+      padding: 10px;
+      text-align-last: center;
+      background-color: #e3e3e3;
+      border: 1px solid #e3e3e3;
+      border-radius: 4px;
+
+}
+
+@media only screen and (max-width: 768px) {
+ 
+
+.set-shark {
+    text-align: center;
+    max-width: 50%;
+    margin-top: 10px !important;
+}
+
+.set-center{
+  text-align: center !important;
+}
+
+.set-country {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+div#pie-chart {
+    width: 100% !important;
+    margin-right: 10px; 
+    margin-left: 10px; 
+}
+
+
+.set-pie-chart {
+    width: 100% !important;
+    margin-left: 10px; 
+}
+.set-gauge-chart {
+    width: 100% !important;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.set-box{
+  padding-left: 2rem!important;
+}
+
+.set-box{
+  margin-left: 10px !important;
+}
+
+.set-box1{
+  margin-left: 7px !important;
+}
+
+.navbar-toggler {
+    
+    background-color: #fff !important;
+    color: #000;
+    
+}
+
+}
