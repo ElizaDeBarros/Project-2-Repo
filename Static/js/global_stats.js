@@ -227,7 +227,7 @@ d3.csv("data/Resources/CleanedData.csv").then(function(attackdata) {
     const data = {
             labels: chartLables,
             datasets: [{
-                // label: 'Total Shark Attacks',
+                label: 'Total Shark Attacks - Top 10 Countries',
                 data: chartData,
                 backgroundColor: [
                     'rgba(255, 99, 132)',
