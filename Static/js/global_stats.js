@@ -63,9 +63,9 @@ d3.csv("data/Resources/CleanedData.csv").then(function(cleanData) {
    //****************************************CHART SECTION********************************************************************************************************** */   
 
     // set the dimensions and margins of the graph
-    var width = 460;
-    var height = 460;
-    var margin = 20
+    var width = 400;
+    var height = 400;
+    var margin = 30
     
     var radius = (Math.min(width, height) / 2 ) - margin
 
@@ -161,8 +161,8 @@ d3.csv("data/Resources/CleanedData.csv").then(function(cleanData) {
         .value(function (d) {
             return d.quantity;
        }).sort(null)(data);
-        var width = 560;
-        var height = 560;
+        var width = 400;
+        var height = 400;
         var radius = (Math.min(width, height) / 2 ) - margin;
         
         path = d3.select("#dynamicPie")
